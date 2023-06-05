@@ -1,0 +1,11 @@
+.itemaction-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  height: 1.7rem;
+  margin: 0 0.2rem 0 0.2rem;
+}

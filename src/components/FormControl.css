@@ -1,0 +1,14 @@
+.formcontrol-add-filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.btn {
+  height: 1.7rem;
+  margin: 0 0.2rem 0 0.2rem;
+  background-color: rgb(91, 101, 218);
+  border: 1px solid rgb(234, 239, 241);
+  border-radius: 0.3rem;
+  color: white;
+}
