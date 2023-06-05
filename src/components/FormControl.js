@@ -1,9 +1,14 @@
 import "./FormControl.css";
 
-export default function FormControl() {
+export default function FormControl({ setIsModalOpen }) {
   return (
     <div className="formcontrol-add-filter">
-      <button className="btn formcontrol-btn">Add Task</button>
+      <button
+        className="btn formcontrol-btn"
+        onClick={() => setIsModalOpen(true)}
+      >
+        Add Task
+      </button>
       <select
         className="btn formcontrol-filter"
         name="filter-task"
