@@ -4,11 +4,11 @@ import "./TodoList.css";
 export default function TodoList() {
   return (
     <div className="todolist-list">
-      <ul>
+      <div>
         <TodoItem></TodoItem>
         <TodoItem></TodoItem>
         <TodoItem></TodoItem>
-      </ul>
+      </div>
     </div>
   );
 }

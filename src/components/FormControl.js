@@ -3,9 +3,9 @@ import "./FormControl.css";
 export default function FormControl() {
   return (
     <div className="formcontrol-add-filter">
-      <button className="formcontrol-btn">Add Task</button>
+      <button className="btn formcontrol-btn">Add Task</button>
       <select
-        className="formcontrol-filter"
+        className="btn formcontrol-filter"
         name="filter-task"
         id="filter-task"
       >
