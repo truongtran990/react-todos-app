@@ -26,3 +26,7 @@ Draw.io: https://drive.google.com/file/d/1tRO5aESt5teVJhgO-NWEAShtsVOlmZ5z/view?
 ## 1.4. Components
 
 ![](./public/static/images/2023-06-03-21-21-47.png)
+
+#### Track history
+
+![](./public/static/images/2023-06-06-00-00-59.png)
