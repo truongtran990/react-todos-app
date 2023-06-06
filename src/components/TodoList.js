@@ -1,13 +1,19 @@
 import TodoItem from "./TodoItem";
 import "./TodoList.css";
 
-export default function TodoList() {
+export default function TodoList({ todoList }) {
   return (
     <div className="todolist-list">
       <div>
-        <TodoItem></TodoItem>
-        <TodoItem></TodoItem>
-        <TodoItem></TodoItem>
+        {todoList.map((todo) => {
+          return (
+            <TodoItem
+              textContent={todo.content}
+              dateContent={todo.date}
+              status={todo.status}
+            />
+          );
+        })}
       </div>
     </div>
   );

@@ -19,3 +19,6 @@
   font-size: 0.8rem;
   color: rgb(119, 118, 123);
 }
+.itemdetail-complete {
+  text-decoration: line-through;
+}

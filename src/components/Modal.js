@@ -28,11 +28,8 @@ export default function Modal({ setIsModalOpen, headerText }) {
             <div className={styles.modal_content_item}>
               <p>Status</p>
               <select name="input-status" id="input-status">
-                <option value="all">All</option>
                 <option value="complete">Complete</option>
                 <option value="incomplete">Incomplete</option>
-                <option value="active">Active</option>
-                <option value="deactive">Deactive</option>
               </select>
             </div>
           </div>
