@@ -17,8 +17,6 @@ export default function FormControl({ setIsModalOpen }) {
         <option value="all">All</option>
         <option value="complete">Complete</option>
         <option value="incomplete">Incomplete</option>
-        <option value="active">Active</option>
-        <option value="deactive">Deactive</option>
       </select>
     </div>
   );

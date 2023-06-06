@@ -7,15 +7,34 @@ import "./App.css";
 import styles from "./App1.module.css";
 import Modal from "../components/Modal";
 
+const initialTodoList = [
+  {
+    content: "Learn ReactJS",
+    date: new Date().toDateString(),
+    status: "incomplete",
+  },
+  {
+    content: "Learn Django",
+    date: new Date().toDateString(),
+    status: "complete",
+  },
+  {
+    content: "Learn AWS",
+    date: new Date().toDateString(),
+    status: "complete",
+  },
+];
+
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [todoList, setTodoList] = useState(initialTodoList);
+
   return (
     <div className="App">
       <h1>TODO LIST</h1>
 
       <FormControl setIsModalOpen={setIsModalOpen} />
-      <TodoList />
+      {todoList.length > 0 && <TodoList todoList={todoList} />}
       {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} />}
     </div>
   );
