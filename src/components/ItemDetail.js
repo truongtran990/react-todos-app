@@ -4,7 +4,12 @@ export default function ItemDetail({ status, textContent, dateContent }) {
   const isComplete = status === "complete" ? true : false;
   return (
     <div className="itemdetail">
-      <input type="checkbox" name="active" checked={isComplete} />
+      <input
+        type="checkbox"
+        name="active"
+        checked={isComplete}
+        onChange={() => console.log("changed checkbox")}
+      />
       <div className="itemdetail-content">
         <p
           className={`itemdetail-text ${

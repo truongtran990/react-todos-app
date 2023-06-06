@@ -1,6 +1,10 @@
 import "./FormControl.css";
 
-export default function FormControl({ setIsModalOpen }) {
+export default function FormControl({
+  setIsModalOpen,
+  filterStatus,
+  setFilterStatus,
+}) {
   return (
     <div className="formcontrol-add-filter">
       <button
@@ -11,8 +15,13 @@ export default function FormControl({ setIsModalOpen }) {
       </button>
       <select
         className="btn formcontrol-filter"
-        name="filter-task"
-        id="filter-task"
+        name="filterTask"
+        id="filterTask"
+        onChange={(event) => {
+          console.log(event.target.value);
+          setFilterStatus(event.target.value);
+        }}
+        value={filterStatus}
       >
         <option value="all">All</option>
         <option value="complete">Complete</option>
