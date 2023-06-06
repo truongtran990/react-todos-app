@@ -2,7 +2,7 @@ import { RiCloseLine } from "react-icons/ri";
 
 import styles from "./Modal.module.css";
 
-export default function Modal({ setIsModalOpen }) {
+export default function Modal({ setIsModalOpen, headerText }) {
   return (
     <>
       <div
@@ -12,7 +12,7 @@ export default function Modal({ setIsModalOpen }) {
       <div className={styles.modal_centered}>
         <div className={styles.modal}>
           <div className={styles.modal_header}>
-            <h5 className={styles.modal_heading}>Add TODO</h5>
+            <h5 className={styles.modal_heading}>{headerText || "Add TODO"}</h5>
           </div>
           <button
             className={styles.modal_close_btn}
@@ -21,7 +21,20 @@ export default function Modal({ setIsModalOpen }) {
             <RiCloseLine style={{ marginBottom: "-3px" }} />
           </button>
           <div className={styles.modal_content}>
-            Are you sure you want to delete the item?
+            <div className={styles.modal_content_item}>
+              <p>Title</p>
+              <input type="text" name="input-title" id="input-title" />
+            </div>
+            <div className={styles.modal_content_item}>
+              <p>Status</p>
+              <select name="input-status" id="input-status">
+                <option value="all">All</option>
+                <option value="complete">Complete</option>
+                <option value="incomplete">Incomplete</option>
+                <option value="active">Active</option>
+                <option value="deactive">Deactive</option>
+              </select>
+            </div>
           </div>
           <div className={styles.modal_actions}>
             <div className={styles.modal_actions_container}>
@@ -39,7 +52,6 @@ export default function Modal({ setIsModalOpen }) {
               </button>
             </div>
           </div>
-          <h1>Hello Modal</h1>
         </div>
       </div>
     </>
