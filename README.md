@@ -1,7 +1,7 @@
 # 1. Architecture
 
-Github ref: https://github.com/ShaifArfan/react-todo-app
-Draw.io: https://drive.google.com/file/d/1tRO5aESt5teVJhgO-NWEAShtsVOlmZ5z/view?usp=sharing
+- Github ref: https://github.com/ShaifArfan/react-todo-app
+- Draw.io: https://drive.google.com/file/d/1tRO5aESt5teVJhgO-NWEAShtsVOlmZ5z/view?usp=sharing
 
 ## 1.1. Mockup UI
 
