@@ -10,19 +10,19 @@ import Modal from "../components/Modal";
 const initialTodoList = [
   {
     content: "Learn ReactJS",
-    date: new Date().toDateString(),
+    date: "Wed Jun 07 2023",
     status: "incomplete",
     id: 0,
   },
   {
     content: "Learn Django",
-    date: new Date().toDateString(),
+    date: "Tue Jun 06 2023",
     status: "complete",
     id: 1,
   },
   {
     content: "Learn AWS",
-    date: new Date().toDateString(),
+    date: "Fri Jun 02 2023",
     status: "complete",
     id: 2,
   },
@@ -40,6 +40,17 @@ function App() {
         })
       : todoList;
 
+  const handleAddTodo = (todo) => {
+    console.log("todo will be added: ", todo);
+    const newTodo = {
+      content: todo.content,
+      date: new Date().toDateString(),
+      status: todo.status,
+      id: todoId++,
+    };
+    setTodoList([...todoList, newTodo]);
+  };
+
   return (
     <div className="App">
       <h1>TODO LIST</h1>
@@ -52,9 +63,12 @@ function App() {
 
       {filteredTodo.length > 0 && <TodoList todoList={filteredTodo} />}
 
-      {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} />}
+      {isModalOpen && (
+        <Modal setIsModalOpen={setIsModalOpen} handleAddTodo={handleAddTodo} />
+      )}
     </div>
   );
 }
 
+let todoId = 3;
 export default App;
