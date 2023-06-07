@@ -1,14 +1,22 @@
 import "./ItemDetail.css";
 
-export default function ItemDetail({ status, textContent, dateContent }) {
-  const isComplete = status === "complete" ? true : false;
+export default function ItemDetail({ todo, handleUpdateTodo }) {
+  const isComplete = todo.status === "complete" ? true : false;
   return (
     <div className="itemdetail">
       <input
         type="checkbox"
         name="active"
         checked={isComplete}
-        onChange={() => console.log("changed checkbox")}
+        onChange={() => {
+          console.log("todo: ", todo);
+          const todoToBeUpdate = {
+            ...todo,
+            status: todo.status === "complete" ? "incomplete" : "complete",
+          };
+          console.log("changed checkbox: ", todoToBeUpdate);
+          handleUpdateTodo(todoToBeUpdate);
+        }}
       />
       <div className="itemdetail-content">
         <p
@@ -16,9 +24,9 @@ export default function ItemDetail({ status, textContent, dateContent }) {
             isComplete ? "itemdetail-complete" : ""
           }`}
         >
-          {textContent}
+          {todo.content}
         </p>
-        <p className="itemdetail-date">{dateContent}</p>
+        <p className="itemdetail-date">{todo.date}</p>
       </div>
     </div>
   );

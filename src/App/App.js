@@ -50,6 +50,21 @@ function App() {
     setTodoList([...todoList, newTodo]);
   };
 
+  const handleUpdateTodo = (todo) => {
+    const newTodoList = todoList.map((item) => {
+      if (item.id === todo.id) {
+        return {
+          ...item,
+          ...todo,
+        };
+      } else {
+        return item;
+      }
+    });
+
+    setTodoList(newTodoList);
+  };
+
   return (
     <div className="App">
       <h1>TODO LIST</h1>
@@ -60,7 +75,13 @@ function App() {
         setFilterStatus={setFilterStatus}
       />
 
-      {filteredTodo.length > 0 && <TodoList todoList={filteredTodo} />}
+      {filteredTodo.length > 0 && (
+        <TodoList
+          todoList={filteredTodo}
+          handleUpdateTodo={handleUpdateTodo}
+          setIsModalOpen={setIsModalOpen}
+        />
+      )}
 
       {isModalOpen && (
         <Modal setIsModalOpen={setIsModalOpen} handleAddTodo={handleAddTodo} />
