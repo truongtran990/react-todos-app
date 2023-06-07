@@ -10,10 +10,7 @@ export default function Modal({ setIsModalOpen, headerText, handleAddTodo }) {
     inputStatus: "incomplete",
   });
 
-  console.log("inputData", inputData);
-
   const handleInputChange = (event) => {
-    console.log("change add todo input");
     setInputData({
       ...inputData,
       [event.target.name]: event.target.value,
