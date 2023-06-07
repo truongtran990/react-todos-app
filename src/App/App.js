@@ -41,7 +41,6 @@ function App() {
       : todoList;
 
   const handleAddTodo = (todo) => {
-    console.log("todo will be added: ", todo);
     const newTodo = {
       content: todo.content,
       date: new Date().toDateString(),
