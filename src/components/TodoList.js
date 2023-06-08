@@ -4,7 +4,7 @@ import "./TodoList.css";
 export default function TodoList({
   todoList,
   handleUpdateTodo,
-  setIsModalOpen,
+  handleDeleteTodo,
 }) {
   return (
     <div className="todolist-list">
@@ -15,7 +15,7 @@ export default function TodoList({
               key={todo.id}
               todo={todo}
               handleUpdateTodo={handleUpdateTodo}
-              setIsModalOpen={setIsModalOpen}
+              handleDeleteTodo={handleDeleteTodo}
             />
           );
         })}

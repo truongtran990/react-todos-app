@@ -3,11 +3,20 @@ import { useState } from "react";
 import "./ItemAction.css";
 import Modal from "./Modal";
 
-export default function ItemAction({ setIsModalOpen, todo, handleUpdateTodo }) {
+export default function ItemAction({
+  todo,
+  handleUpdateTodo,
+  handleDeleteTodo,
+}) {
   const [isShowUpdateModal, setIsShowUpdateModal] = useState(false);
   return (
     <div className="itemaction-actions">
-      <button className="btn itemaction-btn">Delete</button>
+      <button
+        className="btn itemaction-btn"
+        onClick={() => handleDeleteTodo(todo.id)}
+      >
+        Delete
+      </button>
       <button
         className="btn itemaction-btn"
         onClick={() => {

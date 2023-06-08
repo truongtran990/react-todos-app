@@ -2,9 +2,7 @@ import { useState } from "react";
 
 import FormControl from "../components/FormControl";
 import TodoList from "../components/TodoList";
-import logo from "../logo.svg";
 import "./App.css";
-import styles from "./App1.module.css";
 import Modal from "../components/Modal";
 
 const initialTodoList = [
@@ -65,6 +63,10 @@ function App() {
     setTodoList(newTodoList);
   };
 
+  const handleDeleteTodo = (todoId) => {
+    setTodoList(todoList.filter((item) => item.id !== todoId));
+  };
+
   return (
     <div className="App">
       <h1>TODO LIST</h1>
@@ -79,7 +81,7 @@ function App() {
         <TodoList
           todoList={filteredTodo}
           handleUpdateTodo={handleUpdateTodo}
-          setIsModalOpen={setIsModalOpen}
+          handleDeleteTodo={handleDeleteTodo}
         />
       )}
 
