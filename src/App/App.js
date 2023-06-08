@@ -7,7 +7,7 @@ import TodoList from "../components/TodoList";
 import "./App.css";
 import Modal from "../components/Modal";
 
-const initialTodoList = JSON.parse(localStorage.getItem("todoList"));
+const initialTodoList = JSON.parse(localStorage.getItem("todoList")) || [];
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
