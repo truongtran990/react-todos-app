@@ -2,16 +2,19 @@ import ItemAction from "./ItemAction";
 import ItemDetail from "./ItemDetail";
 import "./TodoItem.css";
 
-export default function TodoItem({ textContent, dateContent, status }) {
+export default function TodoItem({ todo, handleUpdateTodo, setIsModalOpen }) {
   return (
     <>
       <div className="todoitem-item">
         <ItemDetail
-          textContent={textContent}
-          dateContent={dateContent}
-          status={status}
+          todo={todo}
+          handleUpdateTodo={handleUpdateTodo}
         ></ItemDetail>
-        <ItemAction></ItemAction>
+        <ItemAction
+          setIsModalOpen={setIsModalOpen}
+          todo={todo}
+          handleUpdateTodo={handleUpdateTodo}
+        ></ItemAction>
       </div>
     </>
   );
