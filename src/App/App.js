@@ -1,35 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import { v4 as uuidv4 } from "uuid";
 
 import FormControl from "../components/FormControl";
 import TodoList from "../components/TodoList";
 import "./App.css";
 import Modal from "../components/Modal";
 
-const initialTodoList = [
-  {
-    content: "Learn ReactJS",
-    date: "Wed Jun 07 2023",
-    status: "incomplete",
-    id: 0,
-  },
-  {
-    content: "Learn Django",
-    date: "Tue Jun 06 2023",
-    status: "complete",
-    id: 1,
-  },
-  {
-    content: "Learn AWS",
-    date: "Fri Jun 02 2023",
-    status: "complete",
-    id: 2,
-  },
-];
+const initialTodoList = JSON.parse(localStorage.getItem("todoList"));
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [todoList, setTodoList] = useState(initialTodoList);
   const [filterStatus, setFilterStatus] = useState("all");
+
+  useEffect(() => {
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+  }, [todoList]);
+
+  useEffect(() => {
+    const localStorageTodoList = JSON.parse(localStorage.getItem("todoList"));
+    if (localStorageTodoList) {
+      setTodoList(localStorageTodoList);
+    }
+  }, []);
 
   const filteredTodo =
     filterStatus !== "all"
@@ -43,7 +37,7 @@ function App() {
       content: todo.content,
       date: new Date().toDateString(),
       status: todo.status,
-      id: todoId++,
+      id: uuidv4(),
     };
     setTodoList([...todoList, newTodo]);
   };
