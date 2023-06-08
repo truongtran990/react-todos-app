@@ -1,4 +1,13 @@
-# 1. Architecture
+# 1. Features
+
+- View all todos (DONE)
+- Add new todo (DONE)
+- Filter todo by status (DONE)
+- Delete todo (DONE)
+- Update todo (DONE)
+- Local storage (DONE)
+
+# 2. Architecture
 
 - Github ref: https://github.com/ShaifArfan/react-todo-app
 - Draw.io: https://drive.google.com/file/d/1tRO5aESt5teVJhgO-NWEAShtsVOlmZ5z/view?usp=sharing
@@ -27,14 +36,7 @@
 
 ![](./public/static/images/2023-06-03-21-21-47.png)
 
-#### Track history
+# 2. References
 
-![](./public/static/images/2023-06-06-00-00-59.png)
-![](./public/static/images/2023-06-06-21-50-40.png)
-
-- View all todos (DONE)
-- Filter todo by status (DONE)
-
-# 3. References
-
-- https://dev.to/franciscomendes10866/how-to-create-a-modal-in-react-3coc
+- Modal: https://dev.to/franciscomendes10866/how-to-create-a-modal-in-react-3coc
+- localStorage: https://blog.logrocket.com/localstorage-javascript-complete-guide/#:~:text=localStorage%20is%20a%20property%20that,browser%20or%20restarts%20the%20computer.
