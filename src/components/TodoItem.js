@@ -10,7 +10,11 @@ export default function TodoItem({ todo, handleUpdateTodo, setIsModalOpen }) {
           todo={todo}
           handleUpdateTodo={handleUpdateTodo}
         ></ItemDetail>
-        <ItemAction setIsModalOpen={setIsModalOpen}></ItemAction>
+        <ItemAction
+          setIsModalOpen={setIsModalOpen}
+          todo={todo}
+          handleUpdateTodo={handleUpdateTodo}
+        ></ItemAction>
       </div>
     </>
   );

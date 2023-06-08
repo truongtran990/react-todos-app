@@ -18,7 +18,6 @@ export default function FormControl({
         name="filterTask"
         id="filterTask"
         onChange={(event) => {
-          console.log(event.target.value);
           setFilterStatus(event.target.value);
         }}
         value={filterStatus}

@@ -4,11 +4,24 @@ import { RiCloseLine } from "react-icons/ri";
 
 import styles from "./Modal.module.css";
 
-export default function Modal({ setIsModalOpen, headerText, handleAddTodo }) {
-  const [inputData, setInputData] = useState({
-    inputTitle: "",
-    inputStatus: "incomplete",
-  });
+export default function Modal({
+  setIsModalOpen,
+  headerText,
+  handleAddTodo,
+  todo,
+  handleUpdateTodo,
+  isAddTodo,
+}) {
+  const initialInput = isAddTodo
+    ? {
+        inputTitle: "",
+        inputStatus: "incomplete",
+      }
+    : {
+        inputTitle: todo.content,
+        inputStatus: todo.status,
+      };
+  const [inputData, setInputData] = useState(initialInput);
 
   const handleInputChange = (event) => {
     setInputData({
@@ -26,7 +39,7 @@ export default function Modal({ setIsModalOpen, headerText, handleAddTodo }) {
       <div className={styles.modal_centered}>
         <div className={styles.modal}>
           <div className={styles.modal_header}>
-            <h5 className={styles.modal_heading}>{headerText || "Add TODO"}</h5>
+            <h5 className={styles.modal_heading}>{headerText}</h5>
           </div>
           <button
             className={styles.modal_close_btn}
@@ -42,6 +55,7 @@ export default function Modal({ setIsModalOpen, headerText, handleAddTodo }) {
                 name="inputTitle"
                 id="inputTitle"
                 onChange={handleInputChange}
+                value={inputData.inputTitle}
               />
             </div>
             <div className={styles.modal_content_item}>
@@ -49,6 +63,7 @@ export default function Modal({ setIsModalOpen, headerText, handleAddTodo }) {
               <select
                 name="inputStatus"
                 id="inputStatus"
+                value={inputData.inputStatus}
                 onChange={handleInputChange}
               >
                 <option value="incomplete">Incomplete</option>
@@ -63,17 +78,26 @@ export default function Modal({ setIsModalOpen, headerText, handleAddTodo }) {
                 onClick={(event) => {
                   if (!inputData.inputTitle.trim()) return;
 
-                  const todo = {
-                    content: inputData.inputTitle,
-                    status: inputData.inputStatus,
-                  };
-                  handleAddTodo(todo);
+                  if (isAddTodo) {
+                    const todo = {
+                      content: inputData.inputTitle,
+                      status: inputData.inputStatus,
+                    };
+                    handleAddTodo(todo);
+                  } else {
+                    const todoToBeUpdate = {
+                      ...todo,
+                      content: inputData.inputTitle,
+                      status: inputData.inputStatus,
+                    };
+                    handleUpdateTodo(todoToBeUpdate);
+                  }
                   setTimeout(() => {
                     setIsModalOpen(false);
-                  }, 1000);
+                  }, 500);
                 }}
               >
-                Add Task
+                {isAddTodo ? "Add Task" : "Update Task"}
               </button>
               <button
                 className={styles.modal_cancel_btn}

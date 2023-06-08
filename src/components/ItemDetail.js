@@ -9,12 +9,10 @@ export default function ItemDetail({ todo, handleUpdateTodo }) {
         name="active"
         checked={isComplete}
         onChange={() => {
-          console.log("todo: ", todo);
           const todoToBeUpdate = {
             ...todo,
             status: todo.status === "complete" ? "incomplete" : "complete",
           };
-          console.log("changed checkbox: ", todoToBeUpdate);
           handleUpdateTodo(todoToBeUpdate);
         }}
       />

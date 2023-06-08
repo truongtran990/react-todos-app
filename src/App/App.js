@@ -84,7 +84,12 @@ function App() {
       )}
 
       {isModalOpen && (
-        <Modal setIsModalOpen={setIsModalOpen} handleAddTodo={handleAddTodo} />
+        <Modal
+          setIsModalOpen={setIsModalOpen}
+          handleAddTodo={handleAddTodo}
+          headerText="Add Todo"
+          isAddTodo={true}
+        />
       )}
     </div>
   );
